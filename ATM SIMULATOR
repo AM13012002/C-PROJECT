@@ -1,0 +1,47 @@
+#include <stdio.h>
+ int main() {
+ int pin = 1234; 
+ int user_pin;
+ float balance = 5000.0; 
+ int option;
+ float amount;
+printf("Welcome to the ATM machine\n");
+ printf("Enter your PIN: ");
+ scanf("%d", &user_pin);
+ if (user_pin != pin) {
+ printf("Invalid PIN\n");
+ return 0;
+ }
+ while (1) {
+ printf("\nChoose an option:\n");
+ printf("1. View balance\n");
+ printf("2. Deposit money\n");
+ printf("3. Withdraw money\n");
+ printf("4. Exit\n");
+ scanf("%d", &option);
+ switch (option) {
+  case 1:
+ printf("Your account balance is:$%.2f\n", balance);
+ break;
+ case 2:
+printf("Enter the amount you want to deposit: $");
+ scanf("%f", &amount);
+ balance += amount;
+ printf("Your new balance is: $%.2f\n", 
+ balance);
+ break;
+ case 3:
+ printf("Enter the amount you want to withdrw: $");
+ scanf("%f", &amount);
+ if (amount > balance) {o printf("Insufficient funds\n");} 
+ else {o balance -= amount;o printf("Your new balance is: $%.2f\n", balance);
+ }
+ break;
+ case 4:
+ printf("Thank you for using the ATM machine\n");
+ return 0;
+ default:
+ printf("Invalid option\n");
+ break;
+ } }
+ }
